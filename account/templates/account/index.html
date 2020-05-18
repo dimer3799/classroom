@@ -1,0 +1,26 @@
+{% extends "layout/basic.html" %}
+{% block title %}
+ - Вход
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="titl fon">
+<h1 class="logo">ClassRoom</h1>
+<h2>Вход</h2>
+<div class="sign_in form-group">
+    
+
+<form action="." method="POST">
+    <div>
+        {{ form.as_p }}
+        {% csrf_token %}
+    </div>
+    <button type="submit" class="btn btn-primary lef">Войти</button>
+    <a href="sign_in" class="btn btn-primary a_signin" role="button" aria-pressed="true">Регистрация</a>
+</form>
+
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout/basic.html" %}
+{% block title %}
+ - Регистрация
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="titl fon">
+<h1 class="logo">ClassRoom</h1>
+<h2>Регистрация</h2>
+<div class="sign_in form-group">
+    
+
+<form action="." method="POST">
+    <div>
+        {{ form.as_p }}
+        {% csrf_token %}
+    </div>
+    <button type="submit" class="btn btn-primary lef">Регистрация</button>
+</form>
+
+</div>
+</div>
+</div>
+{% endblock %}

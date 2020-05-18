@@ -1,0 +1,45 @@
+.titl{
+    width: 25%;
+    padding: 10px;
+    margin:10px auto;
+    color: #ffffff;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+h2{
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+body {
+    background-image: url(fon1.jpg) ;
+    background-repeat: repeat;
+    background-color: #C0C0C0;
+}
+.fon{
+    background-color: #212529;
+}
+.logo{
+    color: #00a550;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+
+}
+
+label{
+    display: block;
+}
+.sign_in{
+    text-align: left;
+    margin-left: 18%;
+    margin-right: 18%;
+}
+.input_signin{
+    width: 100%;
+}
+.a_signin{
+    text-align: right;
+    margin-left: 7%;
+    
+}
