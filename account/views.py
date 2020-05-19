@@ -8,7 +8,16 @@ from .forms import LoginForm, UserRegistrationForm
 
 def test(request):
     if request.method == 'POST':
-        pass
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+            	return HttpResponse('Пользователь зарегистрирован')            
+            else:
+                return HttpResponse('Пользователь зарегистрирован')
     else:
         form = UserRegistrationForm()
         
