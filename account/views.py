@@ -1,21 +1,31 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .forms import LoginForm, UserRegistrationForm
 
 # Create your views here.
 
+def test(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = UserRegistrationForm()
+        
+    context = {'form':form}
+    return render(request, 'registration/reg.html', context)
+
+
+
 def index(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
+        login_user = request.POST.get('login')
+        password_user = request.POST.get('password')
         if form.is_valid():
-            cd = form.cleaned_data
-            # Проверка вывод данных на консоль
-            user = authenticate(user_name = cd['user_name'], password = cd['password'])
-            print(cd['user_name'], cd['password'])
-            print(user)
+            username = form.cleaned_data['login']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
             if user is not None:
             	return HttpResponse('Вы вошли')            
             else:
