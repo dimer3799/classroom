@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .forms import LoginForm, UserRegistrationForm
 
 # Create your views here.
+# Test github commit
 
 def test(request):
     if request.method == 'POST':
