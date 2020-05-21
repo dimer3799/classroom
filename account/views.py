@@ -14,6 +14,7 @@ def registration(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
+           # Исправить
             if user is not None:
             	return HttpResponse('Пользователь зарегистрирован')            
             else:
@@ -30,15 +31,13 @@ def index(request):
     if request.method == 'POST':
         form_login = LoginForm(request.POST)
         if form_login.is_valid():
-           # user = form_login.save(commit=False)
-            #form.save()
             print(form_login.cleaned_data)
             username = form_login.cleaned_data['user_name']
             password = form_login.cleaned_data['password']
-            #user.save()
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
-            	return HttpResponse('Пользователь зашел в систему')            
+                login(request, user)
+                return HttpResponse(user ,'зашел в систему')            
             else:
                 return HttpResponse('Ошибка: нет такого пользователя')
     else:
