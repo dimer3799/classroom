@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .forms import LoginForm, UserRegistrationForm
@@ -38,7 +38,8 @@ def index(request):
             if user is not None:
                 login(request, user)
                 print (user ,'зашел в систему')     
-                return HttpResponse(str(user) +' зашел в систему')
+                return redirect(request, 'lk/index.html')
+               # return HttpResponse(str(user) +' зашел в систему')
                # return render(request, 'account/index.html', context) передать логин на другую страницу
             else:
                 return HttpResponse('Неправильный логин или пароль')
