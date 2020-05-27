@@ -37,9 +37,11 @@ def index(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponse(user ,'зашел в систему')            
+                print (user ,'зашел в систему')     
+                return HttpResponse(str(user) +' зашел в систему')
+               # return render(request, 'account/index.html', context) передать логин на другую страницу
             else:
-                return HttpResponse('Ошибка: нет такого пользователя')
+                return HttpResponse('Неправильный логин или пароль')
     else:
         form = LoginForm()
         
