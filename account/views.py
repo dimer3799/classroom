@@ -37,8 +37,10 @@ def index(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                print (user ,'зашел в систему')     
-                return redirect(request, 'lk/index.html')
+                print (user ,'зашел в систему')    
+                context = {'user':user}
+                return render(request,'lk/index.html', context) 
+               # return redirect(request, 'lk/index.html')
                # return HttpResponse(str(user) +' зашел в систему')
                # return render(request, 'account/index.html', context) передать логин на другую страницу
             else:

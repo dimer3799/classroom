@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aauth.apps.AauthConfig',
     'account.apps.AccountConfig',
+    'lk.apps.LkConfig',
 ]
 
 MIDDLEWARE = [
